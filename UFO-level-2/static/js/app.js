@@ -10,14 +10,28 @@ button.on("click",function() {
     d3.event.preventDefault();
 
     // Select the input element and get the raw HTML node
-    var inputElement = d3.select("#datetime");
+    var dateInput = d3.select("#datetime");
+    var cityInput = d3.select('#city');
+    var stateInput = d3.select('#state');
+    var countryInput = d3.select('#country');
+    var shapeInput = d3.select("#shape");
 
     // Get the value property of the input element
-    var inputValue = inputElement.property("value");
-    console.log("input",inputValue);
+    console.log(dateInput.property("value");
+    console.log(cityInput.property("value");
+    console.log(stateInput.property("value");
+    console.log(countryInput.property("value");
+    console.log(shapeInput.property("value");
 
     // Filter the data based on the input
-    var filteredData = tableData.filter(tableData => tableData.datetime === inputValue);
+    var filteredData = tableData.filter(info =>{
+        (tableData => tableData.datetime === dateInput);
+        (tableData => tableData.city === cityInput);
+        (tableData => tableData.state === stateInput);
+        (tableData => tableData.country === countryInput);
+        (tableData => tableData.shape === shapeInput);
+    })
+        
     console.log("filtered data", filteredData);
 
     // Select the table body and assigning it to a variable
