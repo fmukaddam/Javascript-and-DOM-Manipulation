@@ -3,6 +3,18 @@ var tableData = data;
 
 // Select the button
 var button = d3.select("#filter-btn");
+const tableBody = d3.select("tbody")
+    //append objects from the data file (data.js) into the new table rows
+    tableData.forEach(item => {
+        var tableRow = tableBody.append('tr');
+        tableRow.append('td').text(item.datetime);
+        tableRow.append('td').text(item.city);
+        tableRow.append('td').text(item.state);
+        tableRow.append('td').text(item.country);
+        tableRow.append('td').text(item.shape);
+        tableRow.append('td').text(item.durationMinutes);
+        tableRow.append('td').text(item.comments);
+        });    
 
 button.on("click",function() {
 
@@ -10,28 +22,41 @@ button.on("click",function() {
     d3.event.preventDefault();
 
     // Select the input element and get the raw HTML node
-    var dateInput = d3.select("#datetime");
-    var cityInput = d3.select('#city');
-    var stateInput = d3.select('#state');
-    var countryInput = d3.select('#country');
-    var shapeInput = d3.select("#shape");
+    var dateInput = d3.select("#datetime").property("value");
+    var cityInput = d3.select('#city').property("value");
+    var stateInput = d3.select('#state').property("value");
+    var countryInput = d3.select('#country').property("value");
+    var shapeInput = d3.select("#shape").property("value");
 
     // Get the value property of the input element
-    console.log(dateInput.property("value");
-    console.log(cityInput.property("value");
-    console.log(stateInput.property("value");
-    console.log(countryInput.property("value");
-    console.log(shapeInput.property("value");
+    console.log(dateInput);
+    console.log(cityInput);
+    console.log(stateInput);
+    console.log(countryInput);
+    console.log(shapeInput);
 
-    // Filter the data based on the input
-    var filteredData = tableData.filter(info =>{
-        (tableData => tableData.datetime === dateInput);
-        (tableData => tableData.city === cityInput);
-        (tableData => tableData.state === stateInput);
-        (tableData => tableData.country === countryInput);
-        (tableData => tableData.shape === shapeInput);
-    })
-        
+    filteredData = tableData;
+
+    if (dateInput != ""){
+    filteredData = filteredData.filter(sighting =>
+    sighting.datetime === dateInput);
+    }
+    if (cityInput != ""){
+    filteredData = filteredData.filter(sighting =>
+    sighting.city === cityInput);
+    }
+    if (stateInput != ""){
+    filteredData = filteredData.filter(sighting =>
+    sighting.state === stateInput);
+    }
+    if (countryInput != ""){
+    filteredData = filteredData.filter(sighting =>
+    sighting.country === countryInput);
+    }
+    if (shapeInput != ""){
+    filteredData = filteredData.filter(sighting =>
+    sighting.shape === shapeInput);
+    }
     console.log("filtered data", filteredData);
 
     // Select the table body and assigning it to a variable

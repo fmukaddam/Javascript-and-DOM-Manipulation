@@ -4,7 +4,21 @@ var tableData = data;
 // Select the button
 var button = d3.select("#filter-btn");
 
-button.on("click",function() {
+//Global table body
+const tableBody = d3.select("tbody");
+
+    tableData.forEach(item => {
+        var tableRow = tableBody.append('tr');
+        tableRow.append('td').text(item.datetime);
+        tableRow.append('td').text(item.city);
+        tableRow.append('td').text(item.state);
+        tableRow.append('td').text(item.country);
+        tableRow.append('td').text(item.shape);
+        tableRow.append('td').text(item.durationMinutes);
+        tableRow.append('td').text(item.comments);
+        });
+
+        button.on("click",function() {
 
     // Prevent the page from refreshing
     d3.event.preventDefault();
@@ -21,8 +35,7 @@ button.on("click",function() {
     console.log("filtered data", filteredData);
 
     // Select the table body and assigning it to a variable
-    var tableBody = d3.select("tbody");
-
+    //var tableBody = d3.select("tbody");
     //clear the table before appending the data
     tableBody.html("");
 
