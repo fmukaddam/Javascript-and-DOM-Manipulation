@@ -11,4 +11,4 @@ That's why we are hiring you. We need you to write code that will create a table
 1) Created a HTML web page where the data will be presented <br>
 
 2) Used the UFO dataset provided in the form of an array of JavaScript objects, and wrote out a code that appends the table and presents it on web page and then adds new rows of data for each UFO sighting.
-![alt text](http://url/to/Image_1)
+![alt text](https://github.com/fmukaddam/Javascript-and-DOM-Manipulation/blob/main/UFO-level-1/Images/Image_1.png)
